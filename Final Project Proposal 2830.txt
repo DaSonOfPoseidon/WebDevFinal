@@ -1,0 +1,7 @@
+﻿Final Project Proposal
+Alexander Coker, Jackson Keithley
+
+
+Our team will create a recipe-sharing website targeting everyday consumers. The website will allow users to upload their favorite recipes, including titles, ingredients, step-by-step instructions, and optional images. To ensure community engagement, users must create an account to submit recipes, and all recipes will be freely accessible for anyone to view. This approach forces engagement/data mining while maintaining content quality. The platform will also include a recipe rating system (but no comments), enabling users to evaluate recipes without the complexity of written reviews.
+From a technical perspective, the website will utilize a Node.js server, a database for storing user accounts and recipe information, and a React-based front-end for an interactive user experience. We will focus on intuitive navigation, with features like recipe browsing and filtering by categories (e.g., breakfast, lunch, dinner). By leveraging MySQL for database management, our application will seamlessly handle user uploads, data retrieval, and recipe ratings. The project will emphasize clean design and efficient functionality, providing a user-friendly platform for sharing and discovering recipes.
+GitHub: https://github.com/DaSonOfPoseidon/WebDevFinal
