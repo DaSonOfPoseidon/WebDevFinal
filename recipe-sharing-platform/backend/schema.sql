@@ -25,7 +25,6 @@ CREATE TABLE Ingredients (
     FOREIGN KEY (recipe_id) REFERENCES Recipes(id) ON DELETE CASCADE
 );
 
-
 -- Favorites Table
 CREATE TABLE Favorites (
     user_id INT NOT NULL,
