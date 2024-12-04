@@ -13,7 +13,7 @@ const routesPath = path.join(__dirname, 'routes');
 fs.readdirSync(routesPath).forEach((file) => {
     const route = require(path.join(routesPath, file));
     const routeName = file.split('.')[0]; // Use filename without extension as route prefix
-    app.use(`/api/${routeName}`, route); // Mount the route (e.g., `/api/favorites`)
+    app.use(`/api/${routeName}`, route); 
 });
 
 // Default route for testing
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-sequelize.sync({ alter: true }) // Use `alter: true` for dev, avoid in production
+sequelize.sync({ alter: true }) 
     .then(() => {
         console.log('Database synced!');
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
