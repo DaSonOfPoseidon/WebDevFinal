@@ -10,8 +10,5 @@ TO DO:
 
 <b>Backend</b>
 - Implement Endpoints
-- Get the SQL Server running
 - Impliment Sign-In
-
-<b>Misc</b>
-- Decide on SQL hosting
+- Set up NodeJS Server
