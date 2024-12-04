@@ -1,7 +1,7 @@
 const User = require('./user');
 const Recipe = require('./recipe');
 const Ingredient = require('./ingredient');
-const Favorite = require('./favorite');
+const Favorite = require('./favorites');
 
 // Define relationships
 User.hasMany(Recipe, { foreignKey: 'author_id' });

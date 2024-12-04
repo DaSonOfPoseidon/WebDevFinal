@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Recipes from './components/Recipes';
-import RecipeDetails from './components/RecipeDetails';
-import NewRecipe from './components/NewRecipe';
-import UserProfile from './components/UserProfile';
+import Recipes from './components/recipes';
+import RecipeDetails from './components/recipeDetails';
+import NewRecipe from './components/newRecipe';
+//import UserProfile from './components/UserProfile';
+//            <Route path="/profile" element={<UserProfile />} />
 
 const App = () => (
     <Router>
@@ -11,7 +12,7 @@ const App = () => (
             <Route path="/" element={<Recipes />} />
             <Route path="/recipe/:id" element={<RecipeDetails />} />
             <Route path="/new-recipe" element={<NewRecipe />} />
-            <Route path="/profile" element={<UserProfile />} />
+
         </Routes>
     </Router>
 );
