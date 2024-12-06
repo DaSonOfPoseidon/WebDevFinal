@@ -4,6 +4,7 @@ import Recipes from './components/recipes';
 import RecipeDetails from './components/recipeDetails';
 import NewRecipe from './components/newRecipe';
 import Home from './components/home';
+import './App.css';
 //import UserProfile from './components/UserProfile'; //commented out bc I haven't built that component yet
 //            <Route path="/profile" element={<UserProfile />} />
 
