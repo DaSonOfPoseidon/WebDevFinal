@@ -4,11 +4,19 @@ See "Final Project Desciption"
 
 TO DO:
 <b>Frontend</b>
-- Recipe Page
-- Search/View Page
+- Recipe Details Page
+- Search/View Page (Home)
 - User account Page
 
+- Page Stylinh
+
 <b>Backend</b>
-- Implement Endpoints
 - Impliment Sign-In
-- Set up NodeJS Server
+- Add additional functions as needed
+
+------
+<b>Documentaion</b>
+
+Backend: 
+- Models: Shows how each Data Structure is named and stored.
+- Routes: DB and Server Communctions (Function Calls)

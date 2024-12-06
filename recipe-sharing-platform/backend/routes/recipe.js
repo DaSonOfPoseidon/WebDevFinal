@@ -29,6 +29,7 @@ router.get('/:id', async (req, res) => {
 
         res.status(200).json(recipe);
     } catch (error) {
+        console.error('Error fetching recipe:', error);
         res.status(500).json({ error: error.message });
     }
 });

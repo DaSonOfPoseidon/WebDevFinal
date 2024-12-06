@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Recipes from './components/recipes';
 import RecipeDetails from './components/recipeDetails';
 import NewRecipe from './components/newRecipe';
-//import UserProfile from './components/UserProfile';
+import Home from './components/home';
+//import UserProfile from './components/UserProfile'; //commented out bc I haven't built that component yet
 //            <Route path="/profile" element={<UserProfile />} />
 
 const App = () => (
     <Router>
         <Routes>
-            <Route path="/" element={<Recipes />} />
+            <Route path="/" element={<Home />} />
             <Route path="/recipe/:id" element={<RecipeDetails />} />
             <Route path="/new-recipe" element={<NewRecipe />} />
 
