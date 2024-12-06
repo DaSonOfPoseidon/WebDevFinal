@@ -1,49 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { fetchRecipes } from '../api';
+import { Link } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 import './HomePage.css';
 
 const HomePage = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    const [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {
-    const getRecipes = async () => {
-      try {
-        const response = await fetchRecipes(); // Fetch all recipes from the API
-        setRecipes(response.data); // Store the recipes in state
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load recipes.');
-        setLoading(false);
-      }
-    };
+    useEffect(() => {
+        const getRecipes = async () => {
+            try {
+                const { data } = await fetchRecipes();
+                setRecipes(data);
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+            }
+        };
 
-    getRecipes();
-  }, []);  // This hook runs only once when the component mounts
+        getRecipes();
+    }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  return (
-    <div className="homepage">
-      <h1>Welcome to the Recipe Book</h1>
-      <div className="recipe-list">
-        <ul>
-          {recipes.map((recipe) => (
-            <li key={recipe.id}>
-              <a href={`/recipe/${recipe.id}`}>{recipe.name}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
+    return (
+        <div className="home-page">
+            <Header />
+            <h1>Welcome to the Recipe Sharing Platform</h1>
+            <Link to="/new-recipe">Add New Recipe</Link>
+            <h2>Recipes</h2>
+            <ul>
+                {recipes.map((recipe) => (
+                    <li key={recipe.id}>
+                        <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+                    </li>
+                ))}
+            </ul>
+            <Footer />
+        </div>
+    );
 };
 
 export default HomePage;
