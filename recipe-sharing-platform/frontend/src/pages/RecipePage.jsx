@@ -1,54 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { fetchRecipeById } from '../api';
+import { useParams } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 import './RecipePage.css';
 
-const RecipePage = ({ recipeId }) => {
-  const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const RecipePage = () => {
+    const { id } = useParams(); // Get the recipe ID from the URL
+    const [recipe, setRecipe] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const getRecipe = async () => {
-      try {
-        const response = await fetchRecipeById(recipeId); // Fetch the recipe data from the API
-        setRecipe(response.data);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load recipe.');
-        setLoading(false);
-      }
-    };
+    useEffect(() => {
+        const fetchRecipe = async () => {
+            try {
+                const response = await fetchRecipeById(id);
+                setRecipe(response.data);
+            } catch (err) {
+                console.error('Error fetching recipe:', err);
+                setError('Failed to load recipe. Please try again.');
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    getRecipe();
+        fetchRecipe();
+    }, [id]);
 
-  }, [recipeId]);
+    if (loading) return <p>Loading recipe...</p>;
+    if (error) return <p>{error}</p>;
+    if (!recipe) return <p>Recipe not found.</p>;
 
-  if (loading) {
-    return <div>Loading...</div>; // Show loading message while fetching
-  }
-
-  if (error) {
-    return <div>{error}</div>; // Show error message if fail
-  }
-
-  return (
-    <div className="recipe-page">
-      <h1>{recipe.name}</h1>
-      <p>{recipe.description}</p>
-      <h2>Ingredients:</h2>
-      <ul>
-        {recipe.ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))}
-      </ul>
-      <h2>Steps:</h2>
-      <ol>
-        {recipe.steps.map((step, index) => (
-          <li key={index}>{step}</li>
-        ))}
-      </ol>
-    </div>
-  );
+    return (
+        <div className="recipe-page">
+            <Header />
+            <h1>{recipe.title}</h1>
+            <p><strong>Bake Time:</strong> {recipe.bake_time || 'N/A'}</p>
+            <h2>Ingredients</h2>
+            <ul>
+                {recipe.Ingredients.map((ingredient) => (
+                    <li key={ingredient.id}>
+                        {ingredient.name} - {ingredient.amount} {ingredient.unit}
+                    </li>
+                ))}
+            </ul>
+            <Footer />
+        </div>
+    );
 };
 
 export default RecipePage;
