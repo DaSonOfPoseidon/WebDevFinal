@@ -1,14 +1,11 @@
+/* Footer.css */
 .footer {
     background-color: #282c34;
     color: white;
     text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    position: relative;
+    padding: 10px;
+    position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
-  }
-  
-  .footer p {
-    margin: 0;
-  }
+}
