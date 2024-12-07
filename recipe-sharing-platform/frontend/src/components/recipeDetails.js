@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchRecipeById } from '../api';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 
 const RecipeDetails = () => {
     const { id } = useParams(); // Get the recipe ID from the URL
